@@ -8,7 +8,7 @@ import sys
 import rich_click as click
 
 from .config import config
-from .logger import make_quiet, set_loglevel
+from .logger import log, make_quiet, set_loglevel
 
 
 def cb_verbose(ctx, param, value):
@@ -39,6 +39,7 @@ def cb_interactive(ctx, param, value):
 def cb_test(ctx, param, value):
     if value:
         config.tests = value
+    log.error(f"something else: {config.tests}")
     return value
 
 
